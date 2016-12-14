@@ -11,49 +11,50 @@
 @interface SCScrollNumberView : UIView
 
 /**
- 数字字符串，默认为空字符串
+ the number will to scroll
  */
 @property (nonatomic, strong) NSNumber *number;
 
 /**
- 数字字体，默认 14 号系统字体
+ default: [UIFont systemFontOfSize:14]
  */
 @property (nonatomic, strong) UIFont *font;
 
 /**
- 数字颜色，默认为 darkGray
+ default: [UIColor darkGrayColor]
  */
 @property (nonatomic, strong) UIColor *textColor;
 
 /**
- 是否向上滚动，默认为 YES
+ scroll up or down, default: YES
  */
 
 @property (nonatomic, assign) BOOL isScrollUp;
+
 /**
- 每个数字滚动的行数，默认是 5 行
+ row number to scroll, default: 5
  */
 @property (nonatomic, assign) NSInteger scrollLineNum;
 
 /**
- 动画时间，默认是 1.5
+ animation duration, default: 1.5
  */
 @property (nonatomic, assign) CFTimeInterval duration;
 
 /**
- 每个数字的动画间隔时间，默认是 0.2
+ animation duration gap, default: 0.2
  */
 @property (nonatomic, assign) CFTimeInterval durationOffset;
 
 /**
- 不做动画的列，默认为空，格式如：[NSMutableSet setWithObjects:@0, @1, nil]
+ the columns will NOT scroll. eg. [NSMutableSet setWithObjects:@0, @1, nil]; default: empty set.
  */
 @property (nonatomic, strong) NSMutableSet *exceptAnimIndexSet;
 
 
 
 /**
- 开始动画
+ start to scroll
  */
 - (void)startAnimation;
 

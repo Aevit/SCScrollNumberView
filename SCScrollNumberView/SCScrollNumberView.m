@@ -11,12 +11,12 @@
 @interface SCScrollNumberView()
 
 /**
- 一行文本的高度
+ the height for one line text
  */
 @property (nonatomic, assign) CGFloat oneLineHeight;
 
 /**
- 所有 label 的数组
+ the array of all label will scroll
  */
 @property (nonatomic, strong) NSMutableArray *numberLblArr;
 
@@ -56,7 +56,6 @@
     self.durationOffset = 0.2;
     
     self.number = nil;
-    //    self.numberStr = @"";
 }
 
 #pragma mark - props
@@ -110,7 +109,7 @@
 
 #pragma mark - private methods
 /**
- 分离数字，并创建 label
+ separate the number, and create the labels
  */
 - (void)separateNumber {
     for (int i = 0; i < self.numberStr.length; i++) {
@@ -135,17 +134,18 @@
 
 
 /**
- label 文本赋值，注意最后加多了一行原数字
+ set text for the label
+ NOTICE: add the final number at last
  
- @param text 原数字
- @return 待滚动的数字
+ @param text origin text
+ @return the number will scroll
  */
 - (NSString*)buildText:(NSString*)text {
     NSMutableString *str = [NSMutableString stringWithFormat:@"%@", text];
     for (int i = 0; i < self.scrollLineNum - 2; i++) {
         [str appendFormat:@"\n%d", rand() % 10];
     }
-    [str appendFormat:@"\n%@", text];
+    [str appendFormat:@"\n%@", text]; // add the final number at last
     return str;
 }
 
